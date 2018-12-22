@@ -7,6 +7,7 @@
         this.toolbar = new Toolbar(this);
         this.topContainer = new TopContainerComponent();
         this.selectedComponent = null;
+        this.addedComponents = [];
 
         $(document).keyup(function(event) {
             if (event.keyCode == 46 && designer.selectedComponent) { //delete
@@ -14,6 +15,14 @@
                 designer.selectedComponent = null;
             }
         });
+    }
+
+    getAddedComponents() {
+        return this.addedComponents;
+    }
+
+    selectComponent(component) {
+        component.getDrawable().click();
     }
 
     configureComponents(componentClasses) {
@@ -46,6 +55,8 @@
         parent.addDrawableChild(drawable);
         parent.addChild(component);
         component.parent = parent;
+        this.addedComponents.push(component);
+        designer.attributeSettingsPanel.addComponent(component);
         drawable.click();
     }
 

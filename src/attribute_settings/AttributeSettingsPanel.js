@@ -2,11 +2,27 @@ class AttributeSettingsPanel {
     constructor(designer) {
         this.designer = designer;
         this.tabs = $('#settingsPanel').find('.easyui-tabs');
+        this.cboAddedComponents = $('#addedComponents').combobox({
+            onSelect: function(item) {
+                designer.selectComponent(item.component);
+            }
+        });
         this.component = null;
+    }
+
+    addComponent(component) {
+        this.cboAddedComponents.combobox('loadData', this.designer.getAddedComponents().map(function(c, i) {
+            return {text: c.constructor.displayName + ' No.' + (i+1), value: i, component: c};
+        }));
     }
 
     setComponent(component) {
         this.component = component;
+        
+        var item = this.cboAddedComponents.combobox('getData').find(function(item) {
+            return item.component == component;
+        });
+        this.cboAddedComponents.combobox('setValue', item.value);
 
         this.tabs.tabs('tabs').slice(1).forEach(function(tab) {
             tab.find('table').empty();

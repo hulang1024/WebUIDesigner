@@ -18,18 +18,31 @@ class DOMComponentClassFactory {
                 }
 
                 generateCode(level) {
-                    var indent = '';
-                    for (var n = level * 4; n > 0; n--) {
-                        indent += ' ';
-                    }
+                    var indent = CodeGenerate.indent(level);
                     var html = '';
                     html += indent + '<' + elementName;
                     html += this.generateBasicAttributesCode();
-                    html += '>\n';
+                    html += '>';
+                    if (this.children.length > 0 && !(this.children[0] instanceof TextNode)) {
+                        html += '\n';
+                    }
+                    var childIndent = CodeGenerate.indent(level + 1);
                     this.children.forEach(function(c) {
-                        html += c.generateCode(level + 1);
+                        var innerHtml = c.generateCode(level + 1);
+                        if (c instanceof TextNode) {
+                            if (innerHtml) {
+                                html += innerHtml;
+                            }
+                        } else {
+                            html += innerHtml + '\n';
+                        }
                     });
-                    html += indent + '</' + elementName + '>\n';
+                    var endTag = '</' + elementName + '>';
+                    if (this.children.length) {
+                        html += indent + endTag;
+                    } else {
+                        html += endTag;
+                    }
                     return html;
                 }
              });

@@ -6,6 +6,7 @@ class TextNode extends AbstractComponent {
         textAttr.title = 'text';
         textAttr.codeName = 'text';
         textAttr.valueType = 'string';
+        textAttr.value = '';
         textAttr.component = this;
         textAttr.onValueChange = function(value) {
             this.value = value;

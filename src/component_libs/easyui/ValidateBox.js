@@ -12,8 +12,8 @@ class ValidateBox extends ElementComponent {
         this.classAttr.value = 'easyui-' + c;
     }
 
-    generateCode() {
-        var html = '<input';
+    generateCode(level) {
+        var html = CodeGenerate.indent(level) + '<input';
         html += this.generateBasicAttributesCode();
         html += this._generateDataOptionsCode();
         html += ' />';

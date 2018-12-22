@@ -19,8 +19,9 @@
     <body class="easyui-layout">
         <div data-options="region: 'north'" style="height: 36px;">
             <div style="height: 100%;background-color: #f5f5f5;line-height: 32px;">
-                <a id="openCodeView" class="easyui-linkbutton" data-options="" style="float: right;">查看生成源码</a>
-                <a id="run" class="easyui-linkbutton" data-options="" style="float: right;">运行</a>
+                <a id="openCodeView" class="easyui-linkbutton" data-options="" style="float: right;margin: 4px 10px;
+">查看生成源码</a>
+                <!--<a id="run" class="easyui-linkbutton" data-options="" style="float: right;">运行</a>-->
             </div>
         </div>
         <div data-options="region: 'south'" style="height: 95%">
@@ -31,6 +32,9 @@
                 <div id="viewPanel" data-options="region: 'center', title: '&nbsp;'" style="width: 60%">
                 </div>
                 <div id="settingsPanel" data-options="region: 'east', title: '属性'" style="width: 25%">
+                    <div>
+                        <input id="addedComponents" class="easyui-combobox" data-options="editable:false" style="width:100%" />
+                    </div>
                     <div class="easyui-tabs" data-options="fit:true">
                         <div data-options="title: '基本属性'">
                             <table></table>
