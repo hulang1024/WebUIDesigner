@@ -6,8 +6,7 @@ class TableInput {
             var dialog = $('<div></div>').dialog({
                 width: '50%',
                 height: '80%',
-                title: 'Data',
-                //closed: true,
+                title: 'data',
                 content: '<table id="table" class="easyui-datagrid"></table>',
                 modal: true,
                 buttons: [
@@ -15,7 +14,7 @@ class TableInput {
                         text: '确定',
                         handler: function() {
                             datagrid.datagrid('endEdit', editIndex);
-                            var rows =     $(datagrid).datagrid('getRows').filter(function(row) {
+                            var rows = $(datagrid).datagrid('getRows').filter(function(row) {
                                 for (var p in row) {
                                     if(row[p]) {
                                         return true;
@@ -48,8 +47,7 @@ class TableInput {
                     if (editIndex == index)
                         return;
                     datagrid.datagrid('endEdit', editIndex);
-                    datagrid.datagrid('selectRow', index)
-        					.datagrid('beginEdit', index);
+                    datagrid.datagrid('selectRow', index).datagrid('beginEdit', index);
                     editIndex = index;
                 }
             });
@@ -60,8 +58,7 @@ class TableInput {
             }
             for (var r = 0; r < 10; r++)
                 datagrid.datagrid('appendRow', {});
-            datagrid.datagrid('selectRow', editIndex)
-					.datagrid('beginEdit', editIndex);
+            datagrid.datagrid('selectRow', editIndex).datagrid('beginEdit', editIndex);
         }
         return button;
     }

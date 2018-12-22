@@ -105,4 +105,4 @@ class ValidateBox extends ElementComponent {
     }
 
 }
-this.displayName = '验证框';
+ValidateBox.displayName = '验证框';

@@ -16,9 +16,9 @@ $(function(){
     }), {
         success: function() {
             var componentClasses = [
-                TextNode,
                 TextBox,
-                Combobox
+                Combobox,
+                TextNode
             ];
             componentClasses = componentClasses.concat(new DOMComponentClassFactory().createClasses());
             designer.configureComponents(componentClasses);
