@@ -21,7 +21,15 @@ class DOMComponentClassFactory {
                     var indent = CodeGenerate.indent(level);
                     var html = '';
                     html += indent + '<' + elementName;
-                    html += this.generateBasicAttributesCode();
+                    [
+                        this.generateIdAttributesCode(),
+                        this.generateStyleAttributeCode()
+                    ].forEach(function(s) {
+                        if (s && ((html.length + s.length + 4) > 80)) {
+                            s = '\n' + indent + CodeGenerate.indent(1) + s;
+                        }
+                        html += s;
+                    });
                     html += '>';
                     if (this.children.length > 0 && !(this.children[0] instanceof TextNode)) {
                         html += '\n';

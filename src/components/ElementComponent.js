@@ -19,7 +19,7 @@ class ElementComponent extends AbstractComponent {
         this.attributes = attributes.concat(this.styleItemAttrs);
     }
 
-    generateBasicAttributesCode() {
+    generateIdAttributesCode() {
         var html = '';
         if (this.idAttr.value)
             html += ' id=' + String.dquote(this.idAttr.value);
@@ -27,6 +27,11 @@ class ElementComponent extends AbstractComponent {
             html += ' name=' + String.dquote(this.nameAttr.value);
         if (this.classAttr.value)
             html += ' class=' + String.dquote(this.classAttr.value);
+        return html;
+    }
+
+    generateStyleAttributeCode() {
+        var html = '';
         if (Object.keys(this.styleMap).length) {
             var kvs = '';
             for (var k in this.styleMap) {

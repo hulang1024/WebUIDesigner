@@ -8,6 +8,7 @@ $(function(){
         'dom/DOMComponentClassFactory',
         'dom/TextNode',
         'easyui/DataOptionsItemAttribute',
+        'easyui/EasyuiComponent',
         'easyui/ValidateBox',
         'easyui/TextBox',
         'easyui/Combobox'
