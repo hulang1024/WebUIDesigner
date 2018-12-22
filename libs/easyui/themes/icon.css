@@ -1,0 +1,576 @@
+.icon-idcard {
+  background: url(icons/idcard.png) no-repeat center center;
+}
+.icon-nav-menu {
+  background: url(icons/nav-menu.png) no-repeat center center;
+}
+.icon-consume-record {
+  background: url(icons/consume_record.png) no-repeat center center;
+}
+.icon-record-play {
+  background: url(icons/record_play.png) no-repeat center center;
+}
+.icon-order-trace {
+  background: url(icons/order_trace.png) no-repeat center center;
+}
+.icon-device-allocate {
+  background: url(icons/device-allocate.png) no-repeat center center;
+}
+.icon-device-manage {
+  background: url(icons/device-manage.png) no-repeat center center;
+}
+.icon-check {
+  background: url(icons/check.png) no-repeat center center;
+}
+.icon-exchange {
+  background: url(icons/exchange.png) no-repeat center center;
+}
+.icon-money {
+  background: url(icons/money.png) no-repeat center center;
+}
+.icon-department {
+  background: url(icons/department.png) no-repeat center center;
+}
+.icon-user {
+  background: url(icons/user.png) no-repeat center center;
+}
+.icon-berth {
+  background: url(icons/berth.png) no-repeat center center;
+}
+.icon-room {
+  background: url(icons/room.png) no-repeat center center;
+}
+.icon-floor {
+  background: url(icons/floor.png) no-repeat center center;
+}
+.icon-building {
+  background: url(icons/building.png) no-repeat center center;
+}
+.icon-buildings {
+  background: url(icons/buildings.png) no-repeat center center;
+}
+.icon-basicinfo {
+  background: url(icons/basicinfo.png) no-repeat center center;
+}
+.icon-vipcard {
+  background: url(icons/vipcard.png) no-repeat center center;
+}
+.icon-2dcode {
+  background: url(icons/2dcode.png) no-repeat center center;
+}
+.icon-active-btn {
+  background: url(icons/active_btn.png) no-repeat center center;
+}
+.icon-activity {
+  background: url(icons/activity.png) no-repeat center center;
+}
+.icon-add {
+  background: url(icons/add.png) no-repeat center center;
+}
+.icon-alarm {
+  background: url(icons/alarm.png) no-repeat center center;
+}
+.icon-allocate {
+  background: url(icons/allocate.png) no-repeat center center;
+}
+.icon-app-user {
+  background: url(icons/app_user.png) no-repeat center center;
+}
+.icon-authority {
+  background: url(icons/authority.png) no-repeat center center;
+}
+.icon-back {
+  background: url(icons/back.png) no-repeat center center;
+}
+.icon-blank {
+  background: url(icons/blank.gif) no-repeat center center;
+}
+.icon-business {
+  background: url(icons/business.png) no-repeat center center;
+}
+.icon-call-in {
+  background: url(icons/call_in.png) no-repeat center center;
+}
+.icon-call-none {
+  background: url(icons/call_none.png) no-repeat center center;
+}
+.icon-call-out {
+  background: url(icons/call_out.png) no-repeat center center;
+}
+.icon-call-record {
+  background: url(icons/call_record.png) no-repeat center center;
+}
+.icon-call-refuse {
+  background: url(icons/call_refuse.png) no-repeat center center;
+}
+.icon-camera {
+  background: url(icons/camera.png) no-repeat center center;
+}
+.icon-cancel {
+  background: url(icons/cancel.png) no-repeat center center;
+}
+.icon-cancel-order {
+  background: url(icons/cancel_order.png) no-repeat center center;
+}
+.icon-card-consume {
+  background: url(icons/card_consume.png) no-repeat center center;
+}
+.icon-card-management {
+  background: url(icons/card_management.png) no-repeat center center;
+}
+.icon-care {
+  background: url(icons/care.png) no-repeat center center;
+}
+.icon-care-setting {
+  background: url(icons/care_setting.png) no-repeat center center;
+}
+.icon-cash {
+  background: url(icons/cash.png) no-repeat center center;
+}
+.icon-cash-finish {
+  background: url(icons/cash_finish.png) no-repeat center center;
+}
+.icon-change-number {
+  background: url(icons/change_number.png) no-repeat center center;
+}
+.icon-clear {
+  background: url(icons/clear.png) no-repeat center center;
+}
+.icon-code {
+  background: url(icons/code.png) no-repeat center center;
+}
+.icon-community {
+  background: url(icons/community.png) no-repeat center center;
+}
+.icon-cut {
+  background: url(icons/cut.png) no-repeat center center;
+}
+.icon-data-maintain {
+  background: url(icons/data_maintain.png) no-repeat center center;
+}
+.icon-date-ic-fri-n {
+  background: url(icons/date_ic_fri_n.png) no-repeat center center;
+}
+.icon-date-ic-fri-y {
+  background: url(icons/date_ic_fri_y.png) no-repeat center center;
+}
+.icon-date-ic-mon-n {
+  background: url(icons/date_ic_mon_n.png) no-repeat center center;
+}
+.icon-date-ic-mon-y {
+  background: url(icons/date_ic_mon_y.png) no-repeat center center;
+}
+.icon-date-ic-sat-n {
+  background: url(icons/date_ic_sat_n.png) no-repeat center center;
+}
+.icon-date-ic-sat-y {
+  background: url(icons/date_ic_sat_y.png) no-repeat center center;
+}
+.icon-date-ic-sun-n {
+  background: url(icons/date_ic_sun_n.png) no-repeat center center;
+}
+.icon-date-ic-sun-y {
+  background: url(icons/date_ic_sun_y.png) no-repeat center center;
+}
+.icon-date-ic-tue-n {
+  background: url(icons/date_ic_tue_n.png) no-repeat center center;
+}
+.icon-date-ic-tue-y {
+  background: url(icons/date_ic_tue_y.png) no-repeat center center;
+}
+.icon-date-ic-tus-n {
+  background: url(icons/date_ic_tus_n.png) no-repeat center center;
+}
+.icon-date-ic-tus-y {
+  background: url(icons/date_ic_tus_y.png) no-repeat center center;
+}
+.icon-date-ic-wed-n {
+  background: url(icons/date_ic_wed_n.png) no-repeat center center;
+}
+.icon-date-ic-wed-y {
+  background: url(icons/date_ic_wed_y.png) no-repeat center center;
+}
+.icon-delete {
+  background: url(icons/delete.png) no-repeat center center;
+}
+.icon-delete-group {
+  background: url(icons/delete_group.png) no-repeat center center;
+}
+.icon-detail {
+  background: url(icons/detail.png) no-repeat center center;
+}
+.icon-device-stat {
+  background: url(icons/device_stat.png) no-repeat center center;
+}
+.icon-dial {
+  background: url(icons/dial.png) no-repeat center center;
+}
+.icon-dial-left {
+  background: url(icons/dial_left.png) no-repeat center center;
+}
+.icon-dict {
+  background: url(icons/dict.png) no-repeat center center;
+}
+.icon-disable {
+  background: url(icons/disable.png) no-repeat center center;
+}
+.icon-done-order {
+  background: url(icons/done_order.png) no-repeat center center;
+}
+.icon-down {
+  background: url(icons/down.png) no-repeat center center;
+}
+.icon-download {
+  background: url(icons/download.png) no-repeat center center;
+}
+.icon-drink {
+  background: url(icons/drink.png) no-repeat center center;
+}
+.icon-edit {
+  background: url(icons/edit.png) no-repeat center center;
+}
+.icon-edit-add {
+  background: url(icons/edit_add.png) no-repeat center center;
+}
+.icon-edit-remove {
+  background: url(icons/edit_remove.png) no-repeat center center;
+}
+.icon-enable {
+  background: url(icons/enable.png) no-repeat center center;
+}
+.icon-equipment {
+  background: url(icons/equipment.png) no-repeat center center;
+}
+.icon-export {
+  background: url(icons/export.png) no-repeat center center;
+}
+.icon-feedback {
+  background: url(icons/feedback.png) no-repeat center center;
+}
+.icon-filesave {
+  background: url(icons/filesave.png) no-repeat center center;
+}
+.icon-filter {
+  background: url(icons/filter.png) no-repeat center center;
+}
+.icon-forbidden-btn {
+  background: url(icons/forbidden_btn.png) no-repeat center center;
+}
+.icon-fullscreen {
+  background: url(icons/fullscreen.png) no-repeat center center;
+}
+.icon-function {
+  background: url(icons/function.png?v=1) no-repeat center center;
+}
+.icon-grant {
+  background: url(icons/grant.png) no-repeat center center;
+}
+.icon-greet {
+  background: url(icons/greet.png) no-repeat center center;
+}
+.icon-health {
+  background: url(icons/health.png) no-repeat center center;
+}
+.icon-help {
+  background: url(icons/help.png) no-repeat center center;
+}
+.icon-helpother {
+  background: url(icons/helpother.png) no-repeat center center;
+}
+.icon-housekeeping {
+  background: url(icons/housekeeping.png) no-repeat center center;
+}
+.icon-ill {
+  background: url(icons/ill.png) no-repeat center center;
+}
+.icon-import {
+  background: url(icons/import.png) no-repeat center center;
+}
+.icon-kanbing {
+  background: url(icons/kanbing.png) no-repeat center center;
+}
+.icon-large-chart {
+  background: url(icons/large_chart.png) no-repeat center center;
+}
+.icon-large-clipart {
+  background: url(icons/large_clipart.png) no-repeat center center;
+}
+.icon-large-picture {
+  background: url(icons/large_picture.png) no-repeat center center;
+}
+.icon-large-shapes {
+  background: url(icons/large_shapes.png) no-repeat center center;
+}
+.icon-large-smartart {
+  background: url(icons/large_smartart.png) no-repeat center center;
+}
+.icon-learn {
+  background: url(icons/learn.png) no-repeat center center;
+}
+.icon-location {
+  background: url(icons/location.png) no-repeat center center;
+}
+.icon-lock {
+  background: url(icons/lock.png) no-repeat center center;
+}
+.icon-log {
+  background: url(icons/log.png) no-repeat center center;
+}
+.icon-look {
+  background: url(icons/look.png) no-repeat center center;
+}
+.icon-man {
+  background: url(icons/man.png) no-repeat center center;
+}
+.icon-master {
+  background: url(icons/master.png) no-repeat center center;
+}
+.icon-medicine {
+  background: url(icons/medicine.png) no-repeat center center;
+}
+.icon-member {
+  background: url(icons/member.png) no-repeat center center;
+}
+.icon-merchant-service {
+  background: url(icons/merchant_service.png) no-repeat center center;
+}
+.icon-message {
+  background: url(icons/message.png) no-repeat center center;
+}
+.icon-mini-add {
+  background: url(icons/mini_add.png) no-repeat center center;
+}
+.icon-mini-edit {
+  background: url(icons/mini_edit.png) no-repeat center center;
+}
+.icon-mini-refresh {
+  background: url(icons/mini_refresh.png) no-repeat center center;
+}
+.icon-mobile-offline {
+  background: url(icons/mobile_offline.png) no-repeat center center;
+}
+.icon-mobile-online {
+  background: url(icons/mobile_online.png) no-repeat center center;
+}
+.icon-more {
+  background: url(icons/more.png) no-repeat center center;
+}
+.icon-my {
+  background: url(icons/my.png) no-repeat center center;
+}
+.icon-news {
+  background: url(icons/news.png) no-repeat center center;
+}
+.icon-no {
+  background: url(icons/no.png) no-repeat center center;
+}
+.icon-offline {
+  background: url(icons/offline.png) no-repeat center center;
+}
+.icon-off-volume {
+  background: url(icons/off_volume.png) no-repeat center center;
+}
+.icon-ok {
+  background: url(icons/ok.png) no-repeat center center;
+}
+.icon-online {
+  background: url(icons/online.png) no-repeat center center;
+}
+.icon-on-off {
+  background: url(icons/on_off.png) no-repeat center center;
+}
+.icon-order {
+  background: url(icons/order.png) no-repeat center center;
+}
+.icon-order-doing {
+  background: url(icons/order_doing.png) no-repeat center center;
+}
+.icon-order-done {
+  background: url(icons/order_done.png) no-repeat center center;
+}
+.icon-order-unallocate {
+  background: url(icons/order_unallocate.png) no-repeat center center;
+}
+.icon-order-unexecuted {
+  background: url(icons/order_unexecuted.png) no-repeat center center;
+}
+.icon-org {
+  background: url(icons/org.png) no-repeat center center;
+}
+.icon-password-reset {
+  background: url(icons/password_reset.png) no-repeat center center;
+}
+.icon-pencil {
+  background: url(icons/pencil.png) no-repeat center center;
+}
+.icon-platform-check {
+  background: url(icons/platform_check.png) no-repeat center center;
+}
+.icon-print {
+  background: url(icons/print.png) no-repeat center center;
+}
+.icon-program {
+  background: url(icons/program.png) no-repeat center center;
+}
+.icon-questionnaire {
+  background: url(icons/questionnaire.png) no-repeat center center;
+}
+.icon-radio {
+  background: url(icons/radio.png) no-repeat center center;
+}
+.icon-redo {
+  background: url(icons/redo.png) no-repeat center center;
+}
+.icon-refresh {
+  background: url(icons/refresh.png) no-repeat center center;
+}
+.icon-register-equipment {
+  background: url(icons/register_equipment.png) no-repeat center center;
+}
+.icon-relation {
+  background: url(icons/relation.png) no-repeat center center;
+}
+.icon-relieve {
+  background: url(icons/relieve.png) no-repeat center center;
+}
+.icon-reload {
+  background: url(icons/reload.png) no-repeat center center;
+}
+.icon-renzheng0 {
+  background: url(icons/renzheng0.png) no-repeat center center;
+}
+.icon-renzheng1 {
+  background: url(icons/renzheng1.png) no-repeat center center;
+}
+.icon-renzheng2 {
+  background: url(icons/renzheng2.png) no-repeat center center;
+}
+.icon-renzheng3 {
+  background: url(icons/renzheng3.png) no-repeat center center;
+}
+.icon-repair {
+  background: url(icons/repair.png) no-repeat center center;
+}
+.icon-reservation {
+  background: url(icons/reservation.png) no-repeat center center;
+}
+.icon-role {
+  background: url(icons/role.png) no-repeat center center;
+}
+.icon-role-allocate {
+  background: url(icons/role_allocate.png) no-repeat center center;
+}
+.icon-safe-location {
+  background: url(icons/safe_location.png) no-repeat center center;
+}
+.icon-save {
+  background: url(icons/save.png) no-repeat center center;
+}
+.icon-search {
+  background: url(icons/search.png) no-repeat center center;
+}
+.icon-see-code {
+  background: url(icons/see_code.png) no-repeat center center;
+}
+.icon-serviceplan {
+  background: url(icons/serviceplan.png) no-repeat center center;
+}
+.icon-service-management {
+  background: url(icons/service_management.png) no-repeat center center;
+}
+.icon-service-resources {
+  background: url(icons/Service_resources.png) no-repeat center center;
+}
+.icon-servicplan {
+  background: url(icons/servicplan.png) no-repeat center center;
+}
+.icon-set-device-valid-live {
+  background: url(icons/set-device-valid-live.png) no-repeat center center;
+}
+.icon-set-device-valid-lost {
+  background: url(icons/set-device-valid-lost.png) no-repeat center center;
+}
+.icon-set {
+  background: url(icons/set.png) no-repeat center center;
+}
+.icon-set-security-zone {
+  background: url(icons/set_security_zone.png) no-repeat center center;
+}
+.icon-start-view {
+  background: url(icons/start_view.png) no-repeat center center;
+}
+.icon-stop-view {
+  background: url(icons/stop_view.png) no-repeat center center;
+}
+.icon-store-management {
+  background: url(icons/store_management.png) no-repeat center center;
+}
+.icon-subject-happy {
+  background: url(icons/subject-happy.png) no-repeat center center;
+}
+.icon-subject-health {
+  background: url(icons/subject-health.png) no-repeat center center;
+}
+.icon-subject-life {
+  background: url(icons/subject-life.png) no-repeat center center;
+}
+.icon-subject-security {
+  background: url(icons/subject-security.png) no-repeat center center;
+}
+.icon-subject-system {
+  background: url(icons/subject-system.png) no-repeat center center;
+}
+.icon-subject-user {
+  background: url(icons/subject-user.png) no-repeat center center;
+}
+.icon-sum {
+  background: url(icons/sum.png) no-repeat center center;
+}
+.icon-survey {
+  background: url(icons/survey.png) no-repeat center center;
+}
+.icon-system-user {
+  background: url(icons/system_user.png) no-repeat center center;
+}
+.icon-tel {
+  background: url(icons/tel.png) no-repeat center center;
+}
+.icon-tip {
+  background: url(icons/tip.png) no-repeat center center;
+}
+.icon-undo {
+  background: url(icons/undo.png) no-repeat center center;
+}
+.icon-up {
+  background: url(icons/up.png) no-repeat center center;
+}
+.icon-updatepwd {
+  background: url(icons/updatepwd.png) no-repeat center center;
+}
+.icon-user-cancle {
+  background: url(icons/user_cancle.png) no-repeat center center;
+}
+.icon-version {
+  background: url(icons/version.png) no-repeat center center;
+}
+.icon-view-trace-information {
+  background: url(icons/view_trace_information.png) no-repeat center center;
+}
+.icon-volume-setting {
+  background: url(icons/volume_setting.png) no-repeat center center;
+}
+.icon-volunteer {
+  background: url(icons/volunteer.png) no-repeat center center;
+}
+.icon-walk {
+  background: url(icons/walk.png) no-repeat center center;
+}
+.icon-weather {
+  background: url(icons/weather.png) no-repeat center center;
+}
+.icon-wenzhen {
+  background: url(icons/wenzhen.png) no-repeat center center;
+}
+.icon-whitelist {
+  background: url(icons/whitelist.png) no-repeat center center;
+}

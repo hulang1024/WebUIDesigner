@@ -1,0 +1,10 @@
+#settingsPanel table {
+    margin: 6px;
+}
+
+.component {
+    display: inline-block;
+}
+.component-selected {
+    outline: 1px dotted black;
+}

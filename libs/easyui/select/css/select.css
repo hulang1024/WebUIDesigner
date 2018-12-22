@@ -1,0 +1,65 @@
+/* .select {
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: absolute;
+}
+.select .select-list {
+	z-index: 1100;
+	background-color: #fff;
+	color: green;
+	position: relative;
+	top: -60px;
+	overflow: hidden;
+	width: 50px;
+	height: 0px;
+}
+.select .selected {
+	background: url(../images/select_bg_hover.png) center center no-repeat;
+	position: absolute;
+	top: 0px;
+	width: 50px;
+	height: 30px;
+}
+.select .select-active {
+	color: blue;
+}
+.select .select-list div:hover {
+	color: blue;
+} */
+.select {
+	overflow: hidden;
+	line-height: 30px;
+	text-align: center;
+}
+.select .select-item, .select .select-selected {
+	width: 50px;
+	height: 30px;
+	background-color: #fff;
+}
+.select .select-item {
+	border: solid 1px #b7b7b7;
+	cursor:pointer;
+}
+.select .select-item-list, .select .select-selected {
+	position: relative;
+	float: left;
+}
+.select .select-item-list {
+	width: 104px;
+}
+/* .select .select-item {
+	margin-left: -1px;
+} */
+.select .select-item {
+	float: left;
+}
+.select .select-selected {
+	background: url(../images/select_bg_hover.png) center center no-repeat;
+	color:#fff;
+}
+.select .select-active, .select .select-item:HOVER {
+	background-color:#075C8E;
+	color:#fff;
+}
