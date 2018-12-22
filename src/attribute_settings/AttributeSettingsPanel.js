@@ -11,6 +11,15 @@ class AttributeSettingsPanel {
     }
 
     addComponent(component) {
+        this._reloadAddedComponentInfo();
+    }
+
+    removeComponent(component) {
+        this.cboAddedComponents.combobox('clear');
+        this._reloadAddedComponentInfo();
+    }
+
+    _reloadAddedComponentInfo() {
         this.cboAddedComponents.combobox('loadData', this.designer.getAddedComponents().map(function(c, i) {
             return {text: c.constructor.displayName + ' No.' + (i+1), value: i, component: c};
         }));
@@ -18,7 +27,7 @@ class AttributeSettingsPanel {
 
     setComponent(component) {
         this.component = component;
-        
+
         var item = this.cboAddedComponents.combobox('getData').find(function(item) {
             return item.component == component;
         });

@@ -10,9 +10,17 @@
         this.addedComponents = [];
 
         $(document).keyup(function(event) {
-            if (event.keyCode == 46 && designer.selectedComponent) { //delete
-                designer.selectedComponent.parent.removeChild(designer.selectedComponent);
+            var component = designer.selectedComponent;
+            if (event.keyCode == 46 && component) { //delete
+                component.parent.removeChild(component);
                 designer.selectedComponent = null;
+                for (var i = 0; i < designer.addedComponents.length; i++) {
+                    if (designer.addedComponents[i] == component) {
+                        designer.addedComponents.splice(i, 1);
+                        break;
+                    }
+                }
+                designer.attributeSettingsPanel.removeComponent(component);
             }
         });
     }
