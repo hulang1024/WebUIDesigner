@@ -2,21 +2,77 @@
 class ComponentSelectPanel {
     constructor(designer) {
         this.designer = designer;
-        this.componentClasses = null;
-
-        this.tree = $('#selectPanel #tree');
     }
 
-    loadComponentClasses(componentClasses) {
+    load() {
         var self = this;
-        this.componentClasses = componentClasses;
-        $(this.tree).tree({
-            data: componentClasses.map(function(c) {
-                return {text: c.displayName, componentClass: c};
-            }),
-            onSelect: function(node) {
-                var component = new node.componentClass();
-                self.designer.placeComponent(component);
+
+        this._loadComponentClassTree(function(componentClassTree) {
+            $('#selectPanel #tree').tree({
+                data: toTreeNodes(componentClassTree),
+                onSelect: function(node) {
+                    var component = new node.componentClass();
+                    self.designer.placeComponent(component);
+                }
+            });
+        });
+
+
+        function toTreeNodes(children) {
+            return children.map(function(node) {
+                if (node.text) {
+                    node.children = toTreeNodes(node.children);
+                    return node;
+                } else {
+                    var c = node;
+                    return {text: c.displayName, iconCls: 'icon-blank', componentClass: c};
+                }
+            });
+        }
+    }
+
+    _loadComponentClassTree(onLoad) {
+        var componentLibsPath = 'component_libs';
+        loadjs([
+            'dom/DOMComponentClassFactory',
+            'dom/TextNode',
+            'easyui/DataOptionsItemAttribute',
+            'easyui/EasyuiComponent',
+            'easyui/ValidateBox',
+            'easyui/TextBox',
+            'easyui/Combobox',
+            'easyui/Form'
+        ].map(function(fileName) {
+            return componentLibsPath + '/' + fileName + '.js'
+        }), {
+            success: function() {
+                var componentClassTree = [
+                    {
+                        text: 'Easyui',
+                        children: [
+                            {
+                                text: '布局',
+                                children: []
+                            },
+                            {
+                                text: '表单',
+                                children: [
+                                    TextBox,
+                                    Combobox,
+                                    Form
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        text: 'DOM',
+                        children: [
+                            TextNode
+                        ].concat(new DOMComponentClassFactory().createClasses())
+                    }
+                ];
+
+                onLoad(componentClassTree);
             }
         });
     }

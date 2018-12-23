@@ -30,10 +30,39 @@ class ContainerComponent extends ElementComponent {
     }
 
     generateCode(level) {
-        var code = '';
-        this.children.forEach(function(c) {
-            code += c.generateCode(level + 1) + '\n';
+        var indent = CodeGenerate.indent(level);
+        var html = '';
+        html += indent + '<' + this.elementName;
+        [
+            this.generateIdAttributesCode(),
+            this.generateStyleAttributeCode()
+        ].forEach(function(s) {
+            if (s && ((html.length + s.length + 3 + elementName.length) > 80)) {
+                s = '\n' + indent + '   ' + s;
+            }
+            html += s;
         });
-        return code;
+        html += '>';
+        var hasChildAndFirstNotText = this.children.length > 0 && !(this.children[0] instanceof TextNode);
+        if (hasChildAndFirstNotText) {
+            html += '\n';
+        }
+        this.children.forEach(function(c) {
+            var innerHtml = c.generateCode(level + 1);
+            if (c instanceof TextNode) {
+                if (innerHtml) {
+                    html += innerHtml;
+                }
+            } else {
+                html += innerHtml + '\n';
+            }
+        });
+        var endTag = '</' + this.elementName + '>';
+        if (hasChildAndFirstNotText) {
+            html += indent + endTag;
+        } else {
+            html += endTag;
+        }
+        return html;
     }
 }

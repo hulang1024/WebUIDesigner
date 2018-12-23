@@ -9,6 +9,8 @@
         this.selectedComponent = null;
         this.addedComponents = [];
 
+        this.componentSelectPanel.load();
+
         $(document).keyup(function(event) {
             var component = designer.selectedComponent;
             if (event.keyCode == 46 && component) { //delete
@@ -31,10 +33,6 @@
 
     selectComponent(component) {
         component.getDrawable().click();
-    }
-
-    configureComponents(componentClasses) {
-        this.componentSelectPanel.loadComponentClasses(componentClasses);
     }
 
     placeComponent(component) {

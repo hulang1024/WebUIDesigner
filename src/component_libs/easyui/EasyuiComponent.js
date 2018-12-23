@@ -19,7 +19,7 @@ class EasyuiComponent extends ElementComponent {
             this.generateStyleAttributeCode()
         ].forEach(function(s) {
             if (s && ((html.length + s.length + 4) > 80)) {
-                s = '\n' + indent + CodeGenerate.indent(1) + s;
+                s = '\n' + indent + '   ' + s;
             }
             html += s;
         });

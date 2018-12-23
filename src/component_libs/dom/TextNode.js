@@ -26,4 +26,4 @@ class TextNode extends AbstractComponent {
         return this.textAttr.value;
     }
 }
-TextNode.displayName = '纯文本节点';
+TextNode.displayName = 'text';

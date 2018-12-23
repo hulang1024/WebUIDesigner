@@ -12,6 +12,12 @@ class TopContainerComponent extends ContainerComponent {
         this._drawable.append(child);
     }
 
-
+    generateCode(level) {
+        var code = '';
+        this.children.forEach(function(c) {
+            code += c.generateCode(level + 1) + '\n';
+        });
+        return code;
+    }
 
 }
