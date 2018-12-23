@@ -40,8 +40,7 @@ class ComponentSelectPanel {
             'easyui/EasyuiComponent',
             'easyui/ValidateBox',
             'easyui/TextBox',
-            'easyui/Combobox',
-            'easyui/Form'
+            'easyui/Combobox'
         ].map(function(fileName) {
             return componentLibsPath + '/' + fileName + '.js'
         }), {
@@ -58,8 +57,7 @@ class ComponentSelectPanel {
                                 text: '表单',
                                 children: [
                                     TextBox,
-                                    Combobox,
-                                    Form
+                                    Combobox
                                 ]
                             }
                         ]

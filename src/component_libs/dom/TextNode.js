@@ -19,6 +19,7 @@ class TextNode extends AbstractComponent {
     createDrawable() {
         var span = document.createElement('span');
         span.innerHTML = '文本';
+        span.className = 'text-node';
         return span;
     }
 

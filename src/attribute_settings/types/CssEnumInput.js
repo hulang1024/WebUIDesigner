@@ -7,6 +7,7 @@ class CssEnumInput {
         input.value = attribute.value;
         span.appendChild(input);
         $(input).combobox({
+            editable: false,
             data: attribute.enumValues.map(function(v) { return {text: v, value: v} }),
             onChange: function() {
                 attribute.onValueChange($(this).textbox('getValue'));

@@ -3,7 +3,7 @@ class DOMComponentClassFactory {
     }
 
     createClasses() {
-        return 'div,span,p,table,tr,td'.split(',').map(function(elementName) {
+        return 'div,span,p,table,tr,th,td,form'.split(',').map(function(elementName) {
             var cClass = (class extends ContainerComponent {
                 constructor() {
                     super();

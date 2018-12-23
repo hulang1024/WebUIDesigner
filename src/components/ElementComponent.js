@@ -23,9 +23,7 @@ class ElementComponent extends AbstractComponent {
 
     createDrawable() {
         var elem = document.createElement(this.elementName);
-        elem.style.width = '100px';
-        elem.style.height = '20px';
-        elem.style.border = '1px solid gray';
+        elem.className = 'dom-element';
         return elem;
     }
 

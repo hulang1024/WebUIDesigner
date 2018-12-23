@@ -24,7 +24,7 @@ class AttributeSettingsPanel {
 
     _reloadAddedComponentInfo() {
         this.cboAddedComponents.combobox('loadData', this.designer.getAddedComponents().map(function(c, i) {
-            return {text: c.constructor.displayName + ' No.' + (i+1), value: i, component: c};
+            return {text: c.constructor.displayName + ' #' + (i+1), value: i, component: c};
         }));
     }
 
