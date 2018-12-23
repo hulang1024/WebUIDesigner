@@ -27,7 +27,7 @@
             var children = [];
             c.children.forEach(function(c) {
                 children.push(c);
-                if (c.children.length) {
+                if (c.children && c.children.length) {
                     getChildren(c).forEach(function(c) {
                         children.push(c);
                     });
