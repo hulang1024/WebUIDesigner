@@ -10,6 +10,22 @@
 
 #settingsPanel table {
     margin: 6px;
+    font-size: 13px;
+}
+#settingsPanel table button {
+    width: 20px;
+    height: 20px;
+}
+
+#settingsPanel table tr {
+    height: 24px;
+}
+#settingsPanel table tr th {
+    min-width: 80px;
+}
+#settingsPanel table input[type=checkbox] {
+    width: 20px;
+    height: 20px;
 }
 
 .component {

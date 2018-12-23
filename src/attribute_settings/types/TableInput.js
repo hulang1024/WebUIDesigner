@@ -60,6 +60,7 @@ class TableInput {
                 datagrid.datagrid('appendRow', {});
             datagrid.datagrid('selectRow', editIndex).datagrid('beginEdit', editIndex);
         }
+
         return button;
     }
 }

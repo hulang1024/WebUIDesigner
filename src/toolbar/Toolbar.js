@@ -6,6 +6,8 @@ class Toolbar {
             height: '80%',
             title: 'Code',
             closed: true,
+            maximizable: true,
+            resizable: true,
             modal: true
         });
         $('#openCodeView').click(function() {
