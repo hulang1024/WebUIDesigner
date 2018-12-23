@@ -44,6 +44,7 @@ class ComponentSelectPanel {
         ].map(function(fileName) {
             return componentLibsPath + '/' + fileName + '.js'
         }), {
+            async: false,
             success: function() {
                 var componentClassTree = [
                     {
