@@ -32,12 +32,13 @@ class ContainerComponent extends ElementComponent {
     generateCode(level) {
         var indent = CodeGenerate.indent(level);
         var html = '';
-        html += indent + '<' + this.elementName;
+        var tagName = this.elementName;
+        html += indent + '<' + tagName;
         [
             this.generateIdAttributesCode(),
             this.generateStyleAttributeCode()
         ].forEach(function(s) {
-            if (s && ((html.length + s.length + 3 + elementName.length) > 80)) {
+            if (s && ((html.length + s.length + 3 + tagName.length) > 80)) {
                 s = '\n' + indent + '   ' + s;
             }
             html += s;
@@ -57,7 +58,7 @@ class ContainerComponent extends ElementComponent {
                 html += innerHtml + '\n';
             }
         });
-        var endTag = '</' + this.elementName + '>';
+        var endTag = '</' + tagName + '>';
         if (hasChildAndFirstNotText) {
             html += indent + endTag;
         } else {
