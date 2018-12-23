@@ -7,7 +7,6 @@
         this.toolbar = new Toolbar(this);
         this.topContainer = new TopContainerComponent();
         this.selectedComponent = null;
-        this.addedComponents = [];
 
         this.componentSelectPanel.load();
 
@@ -16,19 +15,26 @@
             if (event.keyCode == 46 && component) { //delete
                 component.parent.removeChild(component);
                 designer.selectedComponent = null;
-                for (var i = 0; i < designer.addedComponents.length; i++) {
-                    if (designer.addedComponents[i] == component) {
-                        designer.addedComponents.splice(i, 1);
-                        break;
-                    }
-                }
                 designer.attributeSettingsPanel.removeComponent(component);
             }
         });
     }
 
     getAddedComponents() {
-        return this.addedComponents;
+        return getChildren(this.topContainer);
+
+        function getChildren(c) {
+            var children = [];
+            c.children.forEach(function(c) {
+                children.push(c);
+                if (c.children.length) {
+                    getChildren(c).forEach(function(c) {
+                        children.push(c);
+                    });
+                }
+            });
+            return children;
+        }
     }
 
     selectComponent(component) {
@@ -61,7 +67,6 @@
         parent.addDrawableChild(drawable);
         parent.addChild(component);
         component.parent = parent;
-        this.addedComponents.push(component);
         designer.attributeSettingsPanel.addComponent(component);
         drawable.click();
     }

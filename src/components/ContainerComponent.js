@@ -13,6 +13,11 @@ class ContainerComponent extends ElementComponent {
         this.children.push(child);
     }
 
+    remove() {
+        $(this._drawable).remove();
+        this.children.forEach(this.removeChild.bind(this));
+    }
+
     removeChild(child) {
         var iterChild;
         for (var i = 0; i < this.children.length; i++) {

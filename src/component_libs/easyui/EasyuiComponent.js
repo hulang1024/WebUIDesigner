@@ -28,7 +28,7 @@ class EasyuiComponent extends ElementComponent {
     }
 
     _generateDataOptionsCode() {
-        var js = '';
+        var code = '';
         if (Object.keys(this.dataOptions).length) {
             var opts = [];
             for (var k in this.dataOptions) {
@@ -40,9 +40,12 @@ class EasyuiComponent extends ElementComponent {
                 }
                 opts.push(k + ':' + v);
             }
-            js += ' data-options="' + opts.join(',') + '"';
+            code += ' data-options="' + opts.join(',') + '"';
         }
-        return js;
+        if (code.length - 1 > 80) {
+            code = ' data-options="' + opts.join(',\n') + '"';
+        }
+        return code;
     }
 
     _jsonifyInDataOptions(o) {
