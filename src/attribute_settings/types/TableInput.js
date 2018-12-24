@@ -6,7 +6,7 @@ class TableInput {
             var dialog = $('<div></div>').dialog({
                 width: '50%',
                 height: '80%',
-                title: 'data',
+                title: attribute.codeName,
                 content: '<table id="table" class="easyui-datagrid"></table>',
                 modal: true,
                 buttons: [
