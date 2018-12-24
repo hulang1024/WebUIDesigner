@@ -81,8 +81,8 @@ class ComponentSelectPanel {
                                 text: '表单',
                                 children: [
                                     TextBox,
-                                    ComboBox,
                                     NumberBox,
+                                    ComboBox,
                                     DateBox,
                                     DateTimeBox,
                                     NumberSpinner,

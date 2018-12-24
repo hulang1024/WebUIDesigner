@@ -18,7 +18,7 @@ class ComboBox extends FormInput {
                     delete item[oldValue];
                 });
             }
-            this.component.getDrawable().prev().combobox('options')[optKey] = value;
+            this.component.getUpdateDrawable().prev().combobox('options')[optKey] = value;
         };
 
         return [
@@ -37,7 +37,7 @@ class ComboBox extends FormInput {
             {name: 'url', valueType: 'url',
                 onValueChange: function(url) {
                     DataOptionsItemAttribute.prototype.onValueChange.call(this, url);
-                    this.component.getDrawable().prev().combobox('reload', url);
+                    this.component.getUpdateDrawable().prev().combobox('reload', url);
                 }
             },
             {name: 'queryParams', valueType: 'js'},
@@ -49,7 +49,7 @@ class ComboBox extends FormInput {
                 ],
                 onValueChange: function(value) {
                     DataOptionsItemAttribute.prototype.onValueChange.call(this, value);
-                    this.component.getDrawable().prev().combobox('loadData', value);
+                    this.component.getUpdateDrawable().prev().combobox('loadData', value);
                 }
             }
         ];
