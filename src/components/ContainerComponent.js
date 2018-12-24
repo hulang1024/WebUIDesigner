@@ -6,6 +6,10 @@ class ContainerComponent extends ElementComponent {
         this.children = [];
     }
 
+    getChildren() {
+        return this.children;
+    }
+
     /*
     @param child  extends AbstractComponent
     */

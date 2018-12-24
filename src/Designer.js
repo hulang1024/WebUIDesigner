@@ -27,6 +27,40 @@
         });
     }
 
+
+
+    placeComponent(component) {
+        var designer = this;
+        var drawable = component.createDrawable();
+        $(drawable).click(function() {
+            designer.selectComponentDrawable(drawable);
+            return false;
+        });
+        if (component instanceof ContainerComponent) {
+            component.getChildren().forEach(function(c) {
+                $(c.getDrawable()).click(function() {
+                    designer.selectComponentDrawable(this);
+                    return false;
+                });
+            });
+        }
+
+        var parent;
+        if (designer.selectedComponent && designer.selectedComponent instanceof ContainerComponent) {
+            parent = designer.selectedComponent;
+        } else {
+            parent = this.topContainer;
+        }
+        parent.addChild(component);
+        component.parent = parent;
+        designer.attributeSettingsPanel.addComponent(component);
+        drawable.click();
+    }
+
+    generateCodeAll() {
+        return this.topContainer.generateCode(-1);
+    }
+
     getAddedComponents() {
         return getChildren(this.topContainer);
 
@@ -45,37 +79,13 @@
     }
 
     selectComponent(component) {
-        component.getDrawable().click();
+        this.selectComponentDrawable(component.getDrawable());
     }
 
-    placeComponent(component) {
-        var designer = this;
-        var drawable = component.createDrawable();
-        $(drawable).addClass('component');
-        $(drawable).click(function() {
-            designer.selectComponentDrawable(component);
-            return false;
-        });
-
-        var parent;
-        if (designer.selectedComponent && designer.selectedComponent instanceof ContainerComponent) {
-            parent = designer.selectedComponent;
-        } else {
-            parent = this.topContainer;
-        }
-        parent.addChild(component);
-        component.parent = parent;
-        designer.attributeSettingsPanel.addComponent(component);
-        drawable.click();
-    }
-
-    generateCodeAll() {
-        return this.topContainer.generateCode(-1);
-    }
-
-    selectComponentDrawable(component) {
+    selectComponentDrawable(drawable) {
+        var component = drawable.getComponent();
         $(this.topContainer.getDrawable()).find('.component').removeClass('component-selected');
-        $(component.getDrawable()).addClass('component-selected');
+        $(drawable).addClass('component-selected');
         this.selectedComponent = component;
         this.attributeSettingsPanel.setComponent(component);
         if (component instanceof ContainerComponent) {

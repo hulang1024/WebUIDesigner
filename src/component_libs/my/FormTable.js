@@ -4,8 +4,8 @@ class FormTable extends ContainerComponent {
 
         this.elementName = 'form';
 
-        var elem = document.createElement(this.elementName);
-        elem.className = 'dom-element';
+        var elem = new Drawable(this.elementName, this);
+        $(elem).addClass('dom-element');
         this._drawable = elem;
 
         var cTable = new (DOMComponentClassFactory.createClassByElementName('table'));
@@ -24,4 +24,4 @@ class FormTable extends ContainerComponent {
         this._cTable.addChild(child);
     }
 }
-FormTable.displayName = 'form>table.form';
+FormTable.displayName = '表单';

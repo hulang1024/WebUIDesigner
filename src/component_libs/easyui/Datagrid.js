@@ -5,7 +5,7 @@ class Datagrid extends EasyuiComponent {
     }
 
     createDrawable() {
-        var span = document.createElement('span');
+        var span = new Drawable('span', this);
         var div = document.createElement('div');
         div.className = 'easyui-datagrid';
         div.style.width = '500px';

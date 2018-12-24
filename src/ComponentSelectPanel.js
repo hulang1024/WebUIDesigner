@@ -12,7 +12,9 @@ class ComponentSelectPanel {
                 data: toTreeNodes(componentClassTree),
                 onSelect: function(node) {
                     var component = new node.componentClass();
-                    self.designer.placeComponent(component);
+                    setTimeout(function() {
+                        self.designer.placeComponent(component);
+                    }, 0);
                 }
             });
         });
@@ -53,7 +55,8 @@ class ComponentSelectPanel {
             'easyui/Slider',
             'easyui/FileBox',
             'easyui/Datagrid',
-            'my/FormTable'
+            'my/FormTable',
+            'my/FormTableTr'
         ].map(function(fileName) {
             return componentLibsPath + '/' + fileName + '.js'
         }), {
@@ -63,7 +66,8 @@ class ComponentSelectPanel {
                     {
                         text: 'My',
                         children: [
-                            FormTable
+                            FormTable,
+                            FormTableTr
                         ]
                     },
                     {
@@ -84,7 +88,12 @@ class ComponentSelectPanel {
                                     NumberSpinner,
                                     TimeSpinner,
                                     Slider,
-                                    FileBox,
+                                    FileBox
+                                ]
+                            },
+                            {
+                                text: '数据表格',
+                                children: [
                                     Datagrid
                                 ]
                             }

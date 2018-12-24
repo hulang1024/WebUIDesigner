@@ -59,7 +59,7 @@ class EasyuiComponent extends ElementComponent {
     }
 
     createDrawable() {
-        var span = document.createElement('span');
+        var span = new Drawable('span', this);
         var input = document.createElement('input');
         input.className = 'easyui-' + this.easyuiClass;
         input.style.width = '100px';

@@ -22,8 +22,8 @@ class ElementComponent extends AbstractComponent {
     }
 
     createDrawable() {
-        var elem = document.createElement(this.elementName);
-        elem.className = 'dom-element';
+        var elem = new Drawable(this.elementName, this);
+        $(elem).addClass('dom-element');
         this._drawable = elem;
         return elem;
     }
