@@ -15,7 +15,14 @@
             if (event.keyCode == 46 && component) { //delete
                 component.parent.removeChild(component);
                 designer.selectedComponent = null;
-                designer.attributeSettingsPanel.removeComponent(component);
+                designer.attributeSettingsPanel.unsetComponent(component);
+            }
+        });
+
+        $(this.topContainer.getDrawable()).click(function() {
+            if (designer.selectedComponent) {
+                designer.unselectComponentDrawable(designer.selectedComponent);
+                designer.selectedComponent = null;
             }
         });
     }
@@ -46,13 +53,7 @@
         var drawable = component.createDrawable();
         $(drawable).addClass('component');
         $(drawable).click(function() {
-            $(designer.topContainer.getDrawable()).find('.component').removeClass('component-selected');
-            $(this).addClass('component-selected');
-            designer.selectedComponent = component;
-            designer.attributeSettingsPanel.setComponent(component);
-            if (component instanceof ContainerComponent) {
-                designer.parent = component;
-            }
+            designer.selectComponentDrawable(component);
             return false;
         });
 
@@ -70,6 +71,21 @@
 
     generateCodeAll() {
         return this.topContainer.generateCode(-1);
+    }
+
+    selectComponentDrawable(component) {
+        $(this.topContainer.getDrawable()).find('.component').removeClass('component-selected');
+        $(component.getDrawable()).addClass('component-selected');
+        this.selectedComponent = component;
+        this.attributeSettingsPanel.setComponent(component);
+        if (component instanceof ContainerComponent) {
+            this.parent = component;
+        }
+    }
+
+    unselectComponentDrawable(component) {
+        $(component.getDrawable()).removeClass('component-selected');
+        this.attributeSettingsPanel.unsetComponent(component);
     }
 
 }

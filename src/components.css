@@ -1,7 +1,11 @@
 
 .component {
     display: inline-block;
+    cursor: pointer;
     /*outline: 1px solid gray;*/
+}
+.component:hover {
+    outline: 1px dotted black;
 }
 .component-selected {
     outline: 3px dotted black !important;
@@ -25,6 +29,7 @@ div.dom-element {
 table.dom-element {
     width: 500px;
     height: 400px;
+    padding: 2px;
 }
 
 tr.dom-element {
@@ -32,7 +37,7 @@ tr.dom-element {
     height: 22px;
 }
 th.dom-element, td.dom-element {
-    width: 250px;
+    width: 240px;
     height: 22px;
 }
 th.dom-element {

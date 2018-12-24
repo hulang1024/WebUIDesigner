@@ -16,7 +16,7 @@ class AttributeSettingsPanel {
         this._reloadAddedComponentInfo();
     }
 
-    removeComponent(component) {
+    unsetComponent(component) {
         this._reloadAddedComponentInfo();
         this.cboAddedComponents.combobox('clear');
         this.tabs.tabs('tabs').forEach(function(tab) {
