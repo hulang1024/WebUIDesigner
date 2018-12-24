@@ -13,6 +13,8 @@ class AbstractAttribute {
         this.value = null;
         /* 所属组件对象 */
         this.component = null;
+        /* 是否继承属性, 如果是则值是直接父类 */
+        this.inheritComponentClass = null;
     }
 
     /*

@@ -8,6 +8,8 @@ class AttributeSettingsPanel {
             }
         });
         this.component = null;
+
+        $('#basicAttributePanel .easyui-accordion').accordion('select', 1);
     }
 
     addComponent(component) {
@@ -37,6 +39,10 @@ class AttributeSettingsPanel {
         this.cboAddedComponents.combobox('setValue', item.value);
 
         this.tabs.tabs('tabs').slice(1).forEach(function(tab) {
+            var accordion = tab.find('.easyui-accordion');
+            for (var i = accordion.accordion('panels').length; i > 1; i--) {
+                accordion.accordion('remove', 1);
+            }
             tab.find('table').empty();
         });
         this._loadAttributes(component.getAttributes());
@@ -48,7 +54,7 @@ class AttributeSettingsPanel {
         tabs.forEach(function(tab) {
             tab.find('table').empty();
         });
-        var attributeInputFactory = new AttributeInputFactory();
+        var inheritComponentClassAttrTableMap = {};
         attributes.forEach(function(attribute) {
             // 属性标题
             var th = document.createElement('th');
@@ -56,22 +62,44 @@ class AttributeSettingsPanel {
 
             // 属性输入
             var td = document.createElement('td');
-            td.appendChild(attributeInputFactory.createAttributeInput(attribute));
+            td.appendChild(AttributeInputFactory.createAttributeInput(attribute));
 
             var tr = document.createElement('tr');
             tr.appendChild(th);
             tr.appendChild(td);
 
             // 分组类型
-            var tableIndex = 1;
             if (attribute instanceof BasicAttribute) {
-                tableIndex = 0;
+                var table;
+                if (['id', 'name', 'class', 'text'].includes(attribute.codeName)) {
+                    table = tabs[0].find('table')[0];
+                } else {
+                    table = tabs[0].find('table')[1];
+                }
+                $(table).append(tr);
+            } else if (attribute instanceof EventAttribute) {
+                var table = tabs[2].find('table');
+                table.append(tr);
+            } else {
+                var table;
+                var inheritComponentCls = attribute.inheritComponentClass;
+                if (inheritComponentCls) {
+                    table = inheritComponentClassAttrTableMap[inheritComponentCls];
+                    if (!table) {
+                        var accordion = tabs[1].find('.easyui-accordion');
+                        accordion.accordion('add', {
+                        	title: '继承自 ' + inheritComponentCls.displayName,
+                        	content: '<table></table>',
+                        	selected: true
+                        });
+                        table = inheritComponentClassAttrTableMap[inheritComponentCls] = accordion.find('table')[accordion.accordion('panels').length - 1];
+                    }
+                } else {
+                    table = tabs[1].find('table')[0];
+                }
+
+                $(table).append(tr);
             }
-            else if (attribute instanceof EventAttribute) {
-                tableIndex = 2;
-            }
-            var table = tabs[tableIndex].find('table');
-            table.append(tr);
         });
     }
 }

@@ -14,7 +14,7 @@ class ElementComponent extends AbstractComponent {
         attributes.push(this.classAttr);
 
         this.styleMap = {};
-        this.styleItemAttrs = new StyleAttributeFactory().createStyleAttributes(this);
+        this.styleItemAttrs = StyleAttributeFactory.createStyleAttributes(this);
 
         this.attributes = attributes.concat(this.styleItemAttrs);
 
@@ -24,6 +24,7 @@ class ElementComponent extends AbstractComponent {
     createDrawable() {
         var elem = document.createElement(this.elementName);
         elem.className = 'dom-element';
+        this._drawable = elem;
         return elem;
     }
 

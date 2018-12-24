@@ -11,6 +11,6 @@
         } else {
             delete styleMap[this.codeName];
         }
-        $(this.component.getDrawable()).css(styleMap);
+        $(this.component.getUpdateDrawable()).css(styleMap);
     }
 }

@@ -56,15 +56,12 @@
             return false;
         });
 
-        component.setDrawable(drawable);
-
         var parent;
         if (designer.selectedComponent && designer.selectedComponent instanceof ContainerComponent) {
             parent = designer.selectedComponent;
         } else {
             parent = this.topContainer;
         }
-        parent.addDrawableChild(drawable);
         parent.addChild(component);
         component.parent = parent;
         designer.attributeSettingsPanel.addComponent(component);

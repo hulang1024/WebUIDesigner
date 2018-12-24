@@ -1,19 +1,20 @@
-class DOMComponentClassFactory {
-    constructor() {
-    }
+var DOMComponentClassFactory = {};
 
-    createClasses() {
-        return 'div,span,p,table,tr,th,td,form'.split(',').map(function(elementName) {
-            var cClass = (class extends ContainerComponent {
-                constructor() {
-                    super();
+DOMComponentClassFactory.createClasses = function() {
+    var names = 'div,span,p,table,tr,th,td,form';
+    return names.split(',').map(function(elementName) {
+        var cClass = DOMComponentClassFactory.createClassByElementName(elementName);
+        cClass.displayName = elementName;
+        return cClass;
+    });
+}
 
-                    this.elementName = elementName;
-                }
+DOMComponentClassFactory.createClassByElementName = function(elementName) {
+    return (class extends ContainerComponent {
+        constructor() {
+            super();
 
-             });
-            cClass.displayName = elementName;
-            return cClass;
-        });
-    }
+            this.elementName = elementName;
+        }
+    });
 }

@@ -1,8 +1,11 @@
-class Combobox extends ValidateBox {
+class ComboBox extends FormInput {
     constructor() {
         super();
         this.setEasyuiClass('combobox');
+        this.inheritComponents([Combo, ValidateBox]);
+    }
 
+    getSpecialAttributeSpecs() {
         var combobox = this;
 
         var changeDataKey = function(value, optKey) {
@@ -18,7 +21,7 @@ class Combobox extends ValidateBox {
             this.component.getDrawable().prev().combobox('options')[optKey] = value;
         };
 
-        [
+        return [
             {name: 'textField', valueType: 'string',
                 value: 'text',
                 onValueChange: function(value) {
@@ -37,6 +40,7 @@ class Combobox extends ValidateBox {
                     this.component.getDrawable().prev().combobox('reload', url);
                 }
             },
+            {name: 'queryParams', valueType: 'js'},
             {name: 'data',
                 valueType: 'table',
                 tableColumns: [
@@ -48,19 +52,7 @@ class Combobox extends ValidateBox {
                     this.component.getDrawable().prev().combobox('loadData', value);
                 }
             }
-        ].forEach(function(attrSpec) {
-            var attr = new DataOptionsItemAttribute();
-            attr.codeName = attrSpec.name;
-            attr.title = attrSpec.name;
-            attr.value = attrSpec.value || null;
-            attr.valueType = attrSpec.valueType;
-            attr.component = combobox;
-            attr.onValueChange = attrSpec.onValueChange || attr.onValueChange;
-            if (attr.valueType == 'table') {
-                attr.tableColumns = attrSpec.tableColumns;
-            }
-            combobox.attributes.push(attr);
-        });
+        ];
     }
 }
-Combobox.displayName = '下拉选择框';
+ComboBox.displayName = 'ComboBox(下拉列表框)';

@@ -36,17 +36,36 @@ class ComponentSelectPanel {
         loadjs([
             'dom/DOMComponentClassFactory',
             'dom/TextNode',
+            'easyui/code',
             'easyui/DataOptionsItemAttribute',
             'easyui/EasyuiComponent',
+            'easyui/FormInput',
             'easyui/ValidateBox',
             'easyui/TextBox',
-            'easyui/Combobox'
+            'easyui/Combo',
+            'easyui/ComboBox',
+            'easyui/NumberBox',
+            'easyui/DateBox',
+            'easyui/DateTimeBox',
+            'easyui/Spinner',
+            'easyui/NumberSpinner',
+            'easyui/TimeSpinner',
+            'easyui/Slider',
+            'easyui/FileBox',
+            'easyui/Datagrid',
+            'my/FormTable'
         ].map(function(fileName) {
             return componentLibsPath + '/' + fileName + '.js'
         }), {
             async: false,
             success: function() {
                 var componentClassTree = [
+                    {
+                        text: 'My',
+                        children: [
+                            FormTable
+                        ]
+                    },
                     {
                         text: 'Easyui',
                         children: [
@@ -58,7 +77,15 @@ class ComponentSelectPanel {
                                 text: '表单',
                                 children: [
                                     TextBox,
-                                    Combobox
+                                    ComboBox,
+                                    NumberBox,
+                                    DateBox,
+                                    DateTimeBox,
+                                    NumberSpinner,
+                                    TimeSpinner,
+                                    Slider,
+                                    FileBox,
+                                    Datagrid
                                 ]
                             }
                         ]
@@ -67,7 +94,7 @@ class ComponentSelectPanel {
                         text: 'DOM',
                         children: [
                             TextNode
-                        ].concat(new DOMComponentClassFactory().createClasses())
+                        ].concat(DOMComponentClassFactory.createClasses())
                     }
                 ];
 

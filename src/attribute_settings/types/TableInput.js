@@ -40,7 +40,7 @@ class TableInput {
                 columns: [attribute.tableColumns.map(function(col) {
                     col.halign = 'center';
                     col.width = Math.floor(100 / attribute.tableColumns.length) + '%';
-                    col.editor = {type: 'textbox'};
+                    col.editor = col.editor || {type: 'textbox'};
                     return col;
                 })],
                 onClickRow: function(index) {

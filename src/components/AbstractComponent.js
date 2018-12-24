@@ -1,10 +1,13 @@
 /*
 抽象组件，表示用户需要的组件，如输入框
+方法可重写
 */
 class AbstractComponent {
     constructor() {
         /* 组件拥有的属性集合 */
         this.attributes = [];
+        /* 是否继承属性, 如果是则值是直接父类们 */
+        this.inheritComponentClasses = [];
 
         /* 绘制组件对象 */
         this._drawable = null;
@@ -18,15 +21,14 @@ class AbstractComponent {
 
     /* 创建组件以让设计器调用以绘制 */
     createDrawable() {}
+    /* 获取绘制对象 */
+    getDrawable() { return this._drawable; }
+    /* 获取属性更新操作的绘制对象 */
+    getUpdateDrawable() { return this.getDrawable(); }
 
     remove() {
         $(this._drawable).remove();
     }
-
-    setDrawable(drawable) { this._drawable = drawable; }
-
-    /* 注:不一定等于 createDrawable()的值 */
-    getDrawable() { return this._drawable; }
 
     /* 生成代码 */
     generateCode() {

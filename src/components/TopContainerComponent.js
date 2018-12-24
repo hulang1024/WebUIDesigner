@@ -8,10 +8,6 @@ class TopContainerComponent extends ContainerComponent {
         this._drawable = div;
     }
 
-    addDrawableChild(child) {
-        this._drawable.append(child);
-    }
-
     generateCode(level) {
         var code = '';
         this.children.forEach(function(c) {

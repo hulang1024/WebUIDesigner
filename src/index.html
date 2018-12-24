@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../libs/easyui/themes/material/easyui.css">
         <link rel="stylesheet" type="text/css" href="../libs/codemirror-5.41.0/codemirror.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="components.css">
         <script src="../libs/loadjs.min.js"></script>
         <script src="../libs/easyui/jquery.min.js"></script>
         <script src="../libs/easyui/jquery.easyui.min.js"></script>
@@ -26,25 +27,37 @@
         </div>
         <div data-options="region: 'south'" style="height: 95%">
             <div class="easyui-layout" data-options="fit: true">
-                <div id="selectPanel" data-options="region: 'west', title: '选择组件'" style="width: 15%">
+                <div id="selectPanel" data-options="region: 'west', title: '选择组件'" style="width: 20%">
                     <ui id="tree" class="easyui-tree"></ul>
                 </div>
-                <div id="viewPanel" data-options="region: 'center', title: '&nbsp;'" style="width: 60%">
+                <div id="viewPanel" data-options="region: 'center', title: '&nbsp;'" style="width: 55%">
                 </div>
                 <div id="settingsPanel" data-options="region: 'east', title: '属性'" style="width: 25%">
                     <div>
                         <input id="addedComponents" class="easyui-combobox" data-options="editable:false" style="width:100%" />
                     </div>
                     <div class="easyui-tabs" data-options="fit:true">
-                        <div data-options="title: '基本属性'">
-                            <table></table>
+                        <div id="basicAttributePanel" data-options="title: '基本属性'">
+                            <div class="easyui-accordion" data-options="multiple: true">
+                                <div data-options="title: '&nbsp;', selected: true">
+                                    <table></table>
+                                </div>
+                                <div data-options="title: 'style', selected: true">
+                                    <table></table>
+                                </div>
+                            </div>
                         </div>
                         <div data-options="title: '普通属性'">
-                            <table></table>
+                            <div class="easyui-accordion" data-options="multiple: true">
+                                <div data-options="title: '特有', select: true">
+                                    <table></table>
+                                </div>
+                            </div>
                         </div>
-                        <div data-options="title: '事件属性'">
+                        <div data-options="title: '事件属性'" data-options="multiple: true">
                             TODO
-                            <table></table>
+                            <div class="easyui-accordion">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,9 +86,11 @@
         <script src="ComponentSelectPanel.js"></script>
         <script src="ComponentViewPanel.js"></script>
         <script src="attribute_settings/types/BooleanInput.js"></script>
+        <script src="attribute_settings/types/NumberInput.js"></script>
         <script src="attribute_settings/types/StringInput.js"></script>
+        <script src="attribute_settings/types/JSInput.js"></script>
         <script src="attribute_settings/types/TableInput.js"></script>
-        <script src="attribute_settings/types/CssEnumInput.js"></script>
+        <script src="attribute_settings/types/EnumInput.js"></script>
         <script src="attribute_settings/AttributeInputFactory.js"></script>
         <script src="attribute_settings/AttributeSettingsPanel.js"></script>
         <script src="Editor.js"></script>

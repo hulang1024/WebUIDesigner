@@ -11,6 +11,7 @@ class ContainerComponent extends ElementComponent {
     */
     addChild(child) {
         this.children.push(child);
+        $(this._drawable).append(child.getDrawable());
     }
 
     remove() {
@@ -28,10 +29,6 @@ class ContainerComponent extends ElementComponent {
                 break;
             }
         }
-    }
-
-    addDrawableChild(child) {
-        this._drawable.appendChild(child);
     }
 
     generateCode(level) {
