@@ -6,7 +6,6 @@ class Toolbar {
             height: '80%',
             title: 'Code',
             closed: true,
-            closable: false,
             maximizable: true,
             resizable: true,
             modal: true

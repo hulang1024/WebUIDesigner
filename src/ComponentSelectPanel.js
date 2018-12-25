@@ -11,10 +11,12 @@ class ComponentSelectPanel {
             $('#selectPanel #tree').tree({
                 data: toTreeNodes(componentClassTree),
                 onSelect: function(node) {
-                    var component = new node.componentClass();
-                    setTimeout(function() {
-                        self.designer.placeComponent(component);
-                    }, 0);
+                    if (node.componentClass) {
+                        var component = new node.componentClass();
+                        setTimeout(function () {
+                            self.designer.placeComponent(component);
+                        }, 0);
+                    }
                 }
             });
         });

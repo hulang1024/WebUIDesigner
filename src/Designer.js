@@ -27,34 +27,29 @@
         });
     }
 
-
-
     placeComponent(component) {
-        var designer = this;
         var drawable = component.createDrawable();
-        $(drawable).click(function() {
-            designer.selectComponentDrawable(drawable);
-            return false;
-        });
-        if (component instanceof ContainerComponent) {
-            component.getChildren().forEach(function(c) {
-                $(c.getDrawable()).click(function() {
-                    designer.selectComponentDrawable(this);
-                    return false;
-                });
-            });
-        }
+        this._bindEvents(component);
 
         var parent;
-        if (designer.selectedComponent && designer.selectedComponent instanceof ContainerComponent) {
-            parent = designer.selectedComponent;
+        if (this.selectedComponent && this.selectedComponent instanceof ContainerComponent) {
+            parent = this.selectedComponent;
         } else {
             parent = this.topContainer;
         }
+
         parent.addChild(component);
         component.parent = parent;
-        designer.attributeSettingsPanel.addComponent(component);
-        drawable.click();
+
+        this.attributeSettingsPanel.addComponent(component);
+
+        var drawableForSelect = null;
+        if (component instanceof ContainerComponent) {
+            drawableForSelect = component.getDrawableForSelect();
+        } else {
+            drawableForSelect = drawable;
+        }
+        this.selectComponentDrawable(drawableForSelect);
     }
 
     generateCodeAll() {
@@ -76,6 +71,21 @@
             });
             return children;
         }
+    }
+
+    _bindEvents(component) {
+        var designer = this;
+        (function traversal(component) {
+            $(component.getDrawable()).click(function() {
+                designer.selectComponentDrawable(this);
+                return false;
+            });
+            if (component instanceof ContainerComponent) {
+                component.getChildren().forEach(function(child) {
+                    traversal(child);
+                });
+            }
+        })(component);
     }
 
     selectComponent(component) {

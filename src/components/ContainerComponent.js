@@ -10,6 +10,11 @@ class ContainerComponent extends ElementComponent {
         return this.children;
     }
 
+    /* 往设计界面增加之后默认选中的元素 */
+    getDrawableForSelect() {
+        return this.getDrawable(); // 默认实现
+    }
+
     /*
     @param child  extends AbstractComponent
     */

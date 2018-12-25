@@ -9,15 +9,23 @@ class FormTableTr extends ContainerComponent {
         this._drawable = drawable;
 
         var cTh = new (DOMComponentClassFactory.createClassByElementName('th'));
-        drawable.appendChild(cTh.createDrawable());
-        this.children.push(cTh);
+        cTh.createDrawable();
+        this.addChild(cTh);
+        var cText = new TextNode();
+        this._cText = cText;
+        cText.createDrawable();
+        cTh.addChild(cText);
         var cTd = new (DOMComponentClassFactory.createClassByElementName('td'));
-        drawable.appendChild(cTd.createDrawable());
-        this.children.push(cTd);
+        cTd.createDrawable();
+        this.addChild(cTd);
     }
 
     createDrawable() {
         return this._drawable;
+    }
+
+    getDrawableForSelect() {
+        return this._cText.getDrawable();
     }
 }
 FormTableTr.displayName = '表单行';
