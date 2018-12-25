@@ -11,6 +11,8 @@ class Toolbar {
             modal: true
         });
         $(document).click(function() {
+            if ($(event.target).parent('.CodeMirror').length)
+                return;
             if (!dialog.dialog('options').closed) {
                 dialog.dialog('close');
             }

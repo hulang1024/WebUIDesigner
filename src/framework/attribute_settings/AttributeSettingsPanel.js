@@ -19,7 +19,15 @@ class AttributeSettingsPanel {
     unsetComponent(component) {
         this._reloadAddedComponentInfo();
         this.cboAddedComponents.combobox('clear');
-        this.tabs.tabs('tabs').forEach(function(tab) {
+        this._clear();
+    }
+
+    _clear() {
+        this.tabs.tabs('tabs').slice(1).forEach(function(tab) {
+            var accordion = tab.find('.easyui-accordion');
+            for (var i = accordion.accordion('panels').length; i > 1; i--) {
+                accordion.accordion('remove', 1);
+            }
             tab.find('table').empty();
         });
     }
@@ -38,13 +46,7 @@ class AttributeSettingsPanel {
         });
         this.cboAddedComponents.combobox('setValue', item.value);
 
-        this.tabs.tabs('tabs').slice(1).forEach(function(tab) {
-            var accordion = tab.find('.easyui-accordion');
-            for (var i = accordion.accordion('panels').length; i > 1; i--) {
-                accordion.accordion('remove', 1);
-            }
-            tab.find('table').empty();
-        });
+        this._clear();
         this._loadAttributes(component.getAttributes());
     }
 

@@ -1,7 +1,6 @@
-class ValidateBox extends FormInput {
+﻿class ValidateBox extends FormInput {
     constructor() {
         super();
-        this.tag = 'input';
         this.setEasyuiClass('validatebox');
     }
 

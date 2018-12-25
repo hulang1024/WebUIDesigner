@@ -5,6 +5,21 @@ class FormInput extends EasyuiComponent {
         this.tagName = 'input';
     }
 
+    createDrawable() {
+        var span = new Drawable('span', this);
+        var input = document.createElement('input');
+        input.className = 'easyui-' + this.easyuiClass;
+        input.style.width = '100px';
+        span.appendChild(input);
+        $.parser.parse(span);
+        this._drawable = span;
+        return span;
+    }
+
+    getUpdateDrawable() {
+        return $(this._drawable).find('.textbox');
+    }
+
     generateCode(level) {
         var indent = CodeGenerate.indent(level);
         var html = indent + '<' + this.tagName;
@@ -20,9 +35,5 @@ class FormInput extends EasyuiComponent {
         });
         html += ' />';
         return html;
-    }
-
-    getUpdateDrawable() {
-        return $(this._drawable).find('.textbox');
     }
 }

@@ -5,6 +5,7 @@ class Drawable {
         element.getComponent = function() {
             return component;
         }
+        element.setComponent = function(c) { component = c; }
         return element;
     }
 

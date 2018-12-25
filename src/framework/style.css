@@ -24,8 +24,8 @@
     min-width: 80px;
 }
 #settingsPanel table input[type=checkbox] {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     vertical-align: middle;
 }
 

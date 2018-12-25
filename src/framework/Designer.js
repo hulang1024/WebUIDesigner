@@ -8,8 +8,6 @@
         this.topContainer = new TopContainerComponent();
         this.selectedComponent = null;
 
-
-
         $(document).keyup(function(event) {
             var component = designer.selectedComponent;
             if (event.keyCode == 46 && component) { //delete

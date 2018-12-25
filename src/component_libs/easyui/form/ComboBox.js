@@ -10,7 +10,6 @@ class ComboBox extends FormInput {
 
         var changeDataKey = function(value, optKey) {
             var oldValue = this.value;
-            DataOptionsItemAttribute.prototype.onValueChange.call(this, value);
             var data = this.component.dataOptions['data'];
             if (data) {
                 data.forEach(function(item) {
@@ -36,7 +35,6 @@ class ComboBox extends FormInput {
             },
             {name: 'url', valueType: 'url',
                 onValueChange: function(url) {
-                    DataOptionsItemAttribute.prototype.onValueChange.call(this, url);
                     this.component.getUpdateDrawable().prev().combobox('reload', url);
                 }
             },
@@ -48,7 +46,6 @@ class ComboBox extends FormInput {
                     {field: 'value', title: 'value'}
                 ],
                 onValueChange: function(value) {
-                    DataOptionsItemAttribute.prototype.onValueChange.call(this, value);
                     this.component.getUpdateDrawable().prev().combobox('loadData', value);
                 }
             }

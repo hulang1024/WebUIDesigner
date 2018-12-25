@@ -4,27 +4,33 @@ $(function(){
 
     var componentLibsPath = '../component_libs';
     loadjs([
-        'dom/DOMComponentClassFactory',
-        'dom/TextNode',
         'easyui/code',
         'easyui/DataOptionsItemAttribute',
         'easyui/EasyuiComponent',
-        'easyui/FormInput',
-        'easyui/ValidateBox',
-        'easyui/TextBox',
-        'easyui/Combo',
-        'easyui/ComboBox',
-        'easyui/NumberBox',
-        'easyui/DateBox',
-        'easyui/DateTimeBox',
-        'easyui/Spinner',
-        'easyui/NumberSpinner',
-        'easyui/TimeSpinner',
-        'easyui/Slider',
-        'easyui/FileBox',
+        'easyui/EasyuiContainerComponent',
+        'easyui/layout/Panel',
+        'easyui/layout/Tabs',
+        'easyui/layout/TabPanel',
+        'easyui/layout/Layout',
+        'easyui/layout/RegionPanel',
+        'easyui/form/FormInput',
+        'easyui/form/ValidateBox',
+        'easyui/form/TextBox',
+        'easyui/form/Combo',
+        'easyui/form/ComboBox',
+        'easyui/form/NumberBox',
+        'easyui/form/DateBox',
+        'easyui/form/DateTimeBox',
+        'easyui/form/Spinner',
+        'easyui/form/NumberSpinner',
+        'easyui/form/TimeSpinner',
+        'easyui/form/Slider',
+        'easyui/form/FileBox',
         'easyui/Datagrid',
         'my/FormTable',
-        'my/FormTableTr'
+        'my/FormTableTr',
+        'dom/DOMComponentClassFactory',
+        'dom/TextNode'
     ].map(function(fileName) {
         return componentLibsPath + '/' + fileName + '.js'
     }), {
@@ -43,7 +49,13 @@ $(function(){
                     children: [
                         {
                             text: '布局',
-                            children: []
+                            children: [
+                                Panel,
+                                Tabs,
+                                TabPanel,
+                                Layout,
+                                RegionPanel
+                            ]
                         },
                         {
                             text: '表单',

@@ -1,52 +1,64 @@
 class EasyuiComponent extends ElementComponent {
     constructor() {
         super();
-        this.dataOptions = {};
-        this.tagName = null;
-
-        this._initAttributes();
+        EasyuiComponentCommon.call(this);
+    }
 }
 
-    setEasyuiClass(c) {
+function EasyuiComponentCommon() {
+    this.dataOptions = {};
+    this.tagName = null;
+
+    this.setEasyuiClass = function(c) {
         this.easyuiClass = c;
         this.classAttr.value = 'easyui-' + c;
-    }
+    };
 
-    getSpecialAttributeSpecs() {
+    this.getSpecialAttributeSpecs = this.getSpecialAttributeSpecs || function() {
         return [];
-    }
+    };
 
-    inheritComponents(componentClasses) {
+    this.inheritComponents = function(componentClasses) {
         var me = this;
-        var overriddenAttributeSpecSet = {};
-        componentClasses.reverse().forEach(function(cls) {
+        var overriddenAttributeSpecSet = [];
+
+        this.getSpecialAttributeSpecs().forEach(function(attrSpec) {
+            overriddenAttributeSpecSet.push(attrSpec);
+        });
+        componentClasses.forEach(function(cls) {
             cls.prototype.getSpecialAttributeSpecs.call(me).forEach(function(attrSpec) {
-                attrSpec = $.extend(true, {}, attrSpec); //deep clone
-                attrSpec.component = me;
-                attrSpec.inheritComponentClass = cls;
-                overriddenAttributeSpecSet[attrSpec.name] = attrSpec;
+                if (!overriddenAttributeSpecSet.find(function(a) { return a.name == attrSpec.name; })) {
+                    attrSpec = $.extend(true, {}, attrSpec); //deep clone
+                    attrSpec.component = me;
+                    attrSpec.inheritComponentClass = cls;
+                    overriddenAttributeSpecSet.push(attrSpec);
+                }
             });
         });
-        Object.values(overriddenAttributeSpecSet).reverse().forEach(function(attrSpec) {
+        overriddenAttributeSpecSet.forEach(function(attrSpec) {
             me.attributes.push(me._makeDataOptionsItemAttribute(attrSpec));
         });
-    }
+    };
 
-    _initAttributes() {
+    this._initAttributes = function() {
         var c = this;
         this.getSpecialAttributeSpecs().forEach(function(attrSpec) {
             attrSpec.component = c;
             c.attributes.push(c._makeDataOptionsItemAttribute(attrSpec));
         });
-    }
+    };
 
-    _makeDataOptionsItemAttribute(attrSpec) {
+    this._makeDataOptionsItemAttribute = function(attrSpec) {
         var attr = new DataOptionsItemAttribute();
         attr.codeName = attrSpec.name;
         attr.title = attrSpec.name;
         attr.value = attrSpec.value || null;
         attr.valueType = attrSpec.valueType;
-        attr.onValueChange = attrSpec.onValueChange || attr.onValueChange;
+        attr.onValueChange = function(value) {
+            DataOptionsItemAttribute.prototype.onValueChange.call(this, value);
+            if (attrSpec.onValueChange)
+                attrSpec.onValueChange(value);
+        };
         attr.inheritComponentClass = attrSpec.inheritComponentClass;
         attr.component = attrSpec.component;
         switch (attr.valueType) {
@@ -56,17 +68,7 @@ class EasyuiComponent extends ElementComponent {
                 attr.enumValues = attrSpec.enumValues;
         }
         return attr;
-    }
+    };
 
-    createDrawable() {
-        var span = new Drawable('span', this);
-        var input = document.createElement('input');
-        input.className = 'easyui-' + this.easyuiClass;
-        input.style.width = '100px';
-        span.appendChild(input);
-        $.parser.parse(span);
-        this._drawable = span;
-        return span;
-    }
-
+    this._initAttributes();
 }
