@@ -23,6 +23,7 @@ function EasyuiComponentCommon() {
         var overriddenAttributeSpecSet = [];
 
         this.getSpecialAttributeSpecs().forEach(function(attrSpec) {
+            attrSpec.component = me;
             overriddenAttributeSpecSet.push(attrSpec);
         });
         componentClasses.forEach(function(cls) {
